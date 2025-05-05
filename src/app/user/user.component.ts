@@ -12,7 +12,7 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 })
 export class UserComponent {
   selectedUser = signal(DUMMY_USERS[randomIndex]);
-  imagePat = computed(() => 'assets/users/' + this.selectedUser().avatar);
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
 
   //getter (usable like a property)
   // get imagePath() {
