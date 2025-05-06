@@ -12,10 +12,7 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
   //Output properties /decorator - older approach/ (gets initial value -> new EventEmitter)
-  // @Output() select = new EventEmitter();
-
-  // Output (newer approach)
-  select = output<string>();
+  @Output() select = new EventEmitter<string>(); //<string> is an extra layer of security (not necessary but you can avoid mistakes, type mismatches)
 
   get imagePath() {
     return 'assets/users/' + this.avatar;
