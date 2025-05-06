@@ -12,6 +12,9 @@ import { DUMMY_USERS } from './dummy-users';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  onSelectUser(id: string) {
+    console.log("Selected user id is: " + id);
+  }
   title = 'project-2';
 
   users = DUMMY_USERS;
