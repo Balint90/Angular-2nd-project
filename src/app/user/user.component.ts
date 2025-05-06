@@ -1,4 +1,4 @@
-import { Component, computed, input, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,20 +8,12 @@ import { Component, computed, input, Input } from '@angular/core';
 })
 export class UserComponent {
   //Decorator (older approach)
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
 
-  //input signals (newer approach from Angular 16+)
-  avatar = input.required<string>(); //<--basically a signal
-  name = input.required<string>();   //<--basically a signal
-
-  imagePath = computed(() => {
-    return 'assets/users/' + this.avatar();
-  });
-
-  // get imagePath() {
-  //   return 'assets/users/' + this.avatar();
-  // }
+  get imagePath() {
+    return 'assets/users/' + this.avatar;
+  }
 
   onSelectUser() {
 
