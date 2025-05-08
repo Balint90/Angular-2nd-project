@@ -35,6 +35,8 @@
       />
     </li>
   </ul>
+
+  <app-tasks [username]="selectedUser ? selectedUser.name : ''"></app-tasks>
 </main>
 
 <router-outlet />

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, output, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 })
 export class UserComponent {
   //Decorator (older approach)
-  @Input({ required: true }) id!: string;
+  @Input({ required: true }) id!: string; // exclamation mark (!) is telling TS that the developer makes sure that this variable is not getting an undefined value
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
   //Output properties /decorator - older approach/ (gets initial value -> new EventEmitter)
