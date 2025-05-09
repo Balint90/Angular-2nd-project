@@ -12,7 +12,12 @@
     }
   </ul>
 
-  <app-tasks [username]="selectedUser ? selectedUser.name : ''"></app-tasks>
+  @if(selectedUser) { <!-- Conditional content -->
+  <app-tasks [username]="selectedUser.name"></app-tasks> <!--selectedUser will be defined and TS knows that-->
+  }
+  @else {
+  <p id="fallback">Select a user to see their tasks!</p>
+  }
 </main>
 
 <router-outlet />
