@@ -2,22 +2,27 @@
 
 <main>
   <ul id="users">
-    @for (user of users; track user.id) {
-    <li>
+    <!-- @for (user of users; track user.id) { -->
+    <li *ngFor="let user of users">
       <app-user
         [user]="user"
         (select)="onSelectUser($event)"
       />
     </li>
-    }
+    <!-- } -->
   </ul>
 
-  @if(selectedUser) { <!-- Conditional content -->
-  <app-tasks [username]="selectedUser.name"></app-tasks> <!--selectedUser will be defined and TS knows that-->
-  }
-  @else {
-  <p id="fallback">Select a user to see their tasks!</p>
-  }
+  <!-- @if(selectedUser) { Conditional content -->
+  <app-tasks
+    *ngIf="selectedUser; else fallback"
+    [username]="selectedUser!.name"
+  ></app-tasks> <!--selectedUser will be defined and TS knows that-->
+  <!-- }
+  @else { -->
+  <ng-template #fallback>
+    <p id="fallback">Select a user to see their tasks!</p>
+  </ng-template>
+  <!-- } -->
 </main>
 
 <router-outlet />
