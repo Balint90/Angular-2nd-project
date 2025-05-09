@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../types';
 
 @Component({
   selector: 'app-user',
@@ -8,17 +9,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserComponent {
   //Decorator (older approach)
-  @Input({ required: true }) id!: string; // exclamation mark (!) is telling TS that the developer makes sure that this variable is not getting an undefined value
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: User;
   //Output properties /decorator - older approach/ (gets initial value -> new EventEmitter)
   @Output() select = new EventEmitter<string>(); //<string> is an extra layer of security (not necessary but you can avoid mistakes, type mismatches)
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }
