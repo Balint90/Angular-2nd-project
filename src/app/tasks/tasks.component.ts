@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { type NewTaskData } from './task/task.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-tasks',
@@ -54,6 +56,15 @@ export class TasksComponent {
   }
 
   onCancelAddTask() {
+    this.isAddingTask = false;
+  }
+
+  onAddTask(taskData: NewTaskData) {
+    this.tasks.push({
+      id: uuidv4(),
+      userId: this.userId,
+      ...taskData
+    });
     this.isAddingTask = false;
   }
 }
