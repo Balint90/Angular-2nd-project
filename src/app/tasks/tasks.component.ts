@@ -16,16 +16,21 @@ export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) username!: string; // question mark (?) tells TS that this variable might not be initialized and that's okay
   //questionmark (?) is basically letting the variable to have undefined value which is equal to string | undefined
-  taskService: TasksService = new TasksService();
+
+  private tasksService: TasksService;
+  //Dependency Injection: You tell angular which type of value you need and Angular creates it and provides it as an argument
+  constructor(tasksService: TasksService) {
+    this.tasksService = tasksService;
+  }
 
   isAddingTask = false;
 
   get selectedUserTasks() {
-    return this.taskService.getUserTasks(this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string) {
-    this.taskService.removeTask(id);
+    this.tasksService.removeTask(id);
   }
 
   onStartAddTask() {
@@ -37,7 +42,7 @@ export class TasksComponent {
   }
 
   onAddTask(taskData: NewTaskData) {
-    this.taskService.addTask(taskData, this.userId);
+    this.tasksService.addTask(taskData, this.userId);
     this.isAddingTask = false;
   }
 }
