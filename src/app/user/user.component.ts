@@ -10,6 +10,7 @@ import { type User } from './user.model';
 export class UserComponent {
   //Decorator (older approach)
   @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected!: boolean;
   //Output properties /decorator - older approach/ (gets initial value -> new EventEmitter)
   @Output() select = new EventEmitter<string>(); //<string> is an extra layer of security (not necessary but you can avoid mistakes, type mismatches)
 
