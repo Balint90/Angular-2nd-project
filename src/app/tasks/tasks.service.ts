@@ -1,7 +1,8 @@
-import { retry } from "rxjs";
 import { NewTaskData } from "./task/task.model";
 import { v4 as uuidv4 } from 'uuid';
+import { Injectable } from "@angular/core";
 
+@Injectable({ providedIn: 'root' }) //Needed for Dependency Injection (later we will learn more about this)
 export class TasksService {
     private tasks = [
         {

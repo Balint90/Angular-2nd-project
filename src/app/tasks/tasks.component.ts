@@ -17,11 +17,9 @@ export class TasksComponent {
   @Input({ required: true }) username!: string; // question mark (?) tells TS that this variable might not be initialized and that's okay
   //questionmark (?) is basically letting the variable to have undefined value which is equal to string | undefined
 
-  private tasksService: TasksService;
   //Dependency Injection: You tell angular which type of value you need and Angular creates it and provides it as an argument
-  constructor(tasksService: TasksService) {
-    this.tasksService = tasksService;
-  }
+  //Easier approach
+  constructor(private tasksService: TasksService) { }
 
   isAddingTask = false;
 
