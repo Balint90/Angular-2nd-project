@@ -4,8 +4,6 @@ import { NewTaskComponent } from "./new-task/new-task.component";
 import { type NewTaskData } from './task/task.model';
 import { TasksService } from './tasks.service';
 
-
-
 @Component({
   selector: 'app-tasks',
   imports: [TaskComponent, NewTaskComponent],
@@ -25,10 +23,6 @@ export class TasksComponent {
 
   get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId);
-  }
-
-  onCompleteTask(id: string) {
-    this.tasksService.removeTask(id);
   }
 
   onStartAddTask() {

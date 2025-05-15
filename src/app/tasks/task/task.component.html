@@ -4,7 +4,7 @@
         <time>{{ task?.dueDate | date:'YYYY. MM. dd.' }}</time>
         <p>{{ task?.summary }}</p>
         <p class="actions">
-            <button (click)="onComplete()">Mark Complete</button>
+            <button (click)="onComplete(task?.id)">Mark Complete</button>
         </p>
     </article>
 </app-card>
