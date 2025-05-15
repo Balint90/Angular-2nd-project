@@ -12,6 +12,7 @@ export class TasksService {
             summary:
                 'Learn all the basic and advanced features of Angular & how to apply them.',
             dueDate: '2025-12-31',
+            completed: false,
         },
         {
             id: 't2',
@@ -19,6 +20,7 @@ export class TasksService {
             title: 'Build first prototype',
             summary: 'Build a first prototype of the online shop website',
             dueDate: '2024-05-31',
+            completed: false,
         },
         {
             id: 't3',
@@ -27,6 +29,7 @@ export class TasksService {
             summary:
                 'Prepare and describe an issue template which will help with project management',
             dueDate: '2024-06-15',
+            completed: false,
         },
     ];
 
@@ -48,6 +51,12 @@ export class TasksService {
             userId: userId,
             ...taskData
         });
+        this.saveTasks();
+    }
+
+    toggleTask(taskId: string) {
+        const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
+        this.tasks[taskIndex].completed = !(this.tasks[taskIndex].completed);
         this.saveTasks();
     }
 

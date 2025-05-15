@@ -23,6 +23,7 @@ export class NewTaskComponent {
       title: this.enteredTitle,
       summary: this.enteredSummary,
       dueDate: this.enteredDate,
+      completed: false,
     }
     this.tasksService.addTask(newTask, this.userId);
     this.close.emit();

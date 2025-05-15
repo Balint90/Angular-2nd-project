@@ -28,10 +28,31 @@ time {
     border: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    margin-left: 10px;
 }
 
 .actions button:hover,
 .actions button:active {
     background-color: #4a0774;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+article.disabled {
+    color: #5a5a5a;
+}
+
+article.disabled time {
+    color: #5a5a5a;
+}
+
+article.disabled button {
+    color: #5a5a5a;
+    background-color: #858585;
+}
+
+article.disabled .actions button:hover,
+article.disabled .actions button:active {
+    background-color: #3d274b;
+    color: #ccc;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }

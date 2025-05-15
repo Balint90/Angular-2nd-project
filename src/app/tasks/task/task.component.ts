@@ -12,11 +12,17 @@ import { TasksService } from './services/tasks.service';
 })
 export class TaskComponent {
   @Input({ required: true }) task!: Task;
+  @Input({ required: true }) completed!: boolean;
   //private tasksService = inject(TasksService); //Dependency injection (approach 1)
 
   constructor(private tasksService: TasksService) { } //Dependency injection (approach 2)
 
   onComplete() {
+    this.tasksService.toggleTask(this.task.id);
+    console.log(this.task.completed);
+  }
+
+  onRemove() {
     this.tasksService.removeTask(this.task.id);
   }
 }
