@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { type NewTaskData } from '../task/task.model';
 import { FormsModule } from '@angular/forms';
-import { TasksService } from '../tasks.service';
+import { TasksService } from '../task/services/tasks.service';
 
 @Component({
   selector: 'app-new-task',

@@ -1,4 +1,4 @@
-import { NewTaskData } from "./task/task.model";
+import { NewTaskData } from "../task.model";
 import { v4 as uuidv4 } from 'uuid';
 import { Injectable } from "@angular/core";
 

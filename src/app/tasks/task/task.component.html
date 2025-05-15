@@ -1,10 +1,10 @@
 <app-card>
     <article>
-        <h2>{{ task?.title }}</h2>
-        <time>{{ task?.dueDate | date:'YYYY. MM. dd.' }}</time>
-        <p>{{ task?.summary }}</p>
+        <h2>{{ task.title }}</h2>
+        <time>{{ task.dueDate | date:'YYYY. MM. dd.' }}</time>
+        <p>{{ task.summary }}</p>
         <p class="actions">
-            <button (click)="onComplete(task?.id)">Mark Complete</button>
+            <button (click)="onComplete()">Mark Complete</button>
         </p>
     </article>
 </app-card>
